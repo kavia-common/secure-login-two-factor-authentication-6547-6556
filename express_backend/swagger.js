@@ -4,10 +4,20 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'My Express API',
+      title: '2FA Express API',
       version: '1.0.0',
-      description: 'A simple Express API documented with Swagger',
-    }
+      description: 'Express API for authentication with Two-Factor Authentication (2FA).',
+    },
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+          description: 'Enter the access token with Bearer prefix. Example: Bearer eyJhbGciOi...',
+        },
+      },
+    },
   },
   apis: ['./src/routes/*.js'], // Path to the API docs
 };
